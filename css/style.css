@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 60%;
+  height: 30rem;
+  border: 1px solid gray;
+  background-color: #e7e9eb;
+  display: flex;
+  /* justify-content: space-between; */
+  margin: 2rem auto;
+}
+
+.player {
+  width: 100%;
+  padding: 3rem;
+  text-align: center;
+}
+
+.computer-player {
+  background-color: yellow;
+  border-left: 2px solid red;
+}
+
+.icons {
+  position: absolute;
+  font-size: 2rem;
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 3rem;
+}
+button {
+  position: absolute;
+  cursor: pointer;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button {
+  background-color: red;
+  cursor: pointer;
+}
