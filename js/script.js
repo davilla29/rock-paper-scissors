@@ -7,10 +7,14 @@ let buttons = document.querySelectorAll(".button");
 let newGameBtn = document.getElementById("newBtn");
 let scoreEl1 = document.querySelector(".human-score");
 let scoreEl2 = document.querySelector(".computer-score");
-let humanBg = document.querySelector(".human-player");
+let humanBg = document.getElementById("human");
+let computerBg = document.getElementById("computer");
+let roundCounter = document.getElementById("round");
 
+// Setting default values
 scoreEl1.textContent = 0;
 scoreEl2.textContent = 0;
+roundCounter.textContent = 0;
 
 // Function for human selection
 function humanSelection(button) {
@@ -19,10 +23,8 @@ function humanSelection(button) {
     //   alert("Rock element clicked");
     selectedIcon = '<i class="fas fa-hand-rock"></i>'; // Rock icon
   } else if (button === paperEl) {
-    //   alert("Paper element clicked");
     selectedIcon = '<i class="fas fa-hand-paper"></i>';
   } else {
-    //   alert("Scissors element clicked");
     selectedIcon = '<i class="fas fa-hand-scissors"></i>'; // Scissors icon
   }
   humanImg.innerHTML = `${selectedIcon}`;
@@ -32,55 +34,88 @@ function humanSelection(button) {
 function computerSelection() {
   // Storing the name and HTML markup of each icon in an array of object
   const options = [
-    // '<i class="fas fa-hand-rock fa-3x"></i>', // Rock
-    // '<i class="fas fa-hand-paper fa-3x"></i>', // Paper
-    // '<i class="fas fa-hand-scissors fa-3x"></i>', // Scissors
     {
       name: "Rock",
-      icon: `<i class="fas fa-hand-rock"></i>`,
+      icon: '<i class="fas fa-hand-rock"></i>',
     },
 
     {
       name: "Paper",
-      icon: `<i class="fas fa-hand-paper"></i>`,
+      icon: '<i class="fas fa-hand-paper"></i>',
     },
 
     {
       name: "Scissors",
-      icon: `<i class="fas fa-hand-scissors"></i>`,
+      icon: '<i class="fas fa-hand-scissors"></i>',
     },
   ];
 
   const randomNumber = Math.floor(Math.random() * options.length);
   const randomIcon = (computerImg.innerHTML = options[randomNumber].icon);
   return randomIcon;
-
-  // return (computerImg.innerHTML =
-  //   options[Math.floor(Math.random() * options.length)]);
 }
 
+// Function to get the winner of each round
 function getWinner() {
   if (humanImg.innerHTML === computerImg.innerHTML) {
-    alert("Draw");
-  }
-
-  if (
+    // alert("Draw");
+    computerBg.style.backgroundColor = "yellow";
+    humanBg.style.backgroundColor = "yellow";
+  } else if (
     (humanImg.innerHTML === '<i class="fas fa-hand-rock"></i>' &&
       computerImg.innerHTML === '<i class="fas fa-hand-scissors"></i>') ||
-    (humanImg.innerHTML === "scissors" && computerImg.innerHTML === "paper") ||
-    (humanImg.innerHTML === "paper" && computerImg.innerHTML === "rock")
+    (humanImg.innerHTML === '<i class="fas fa-hand-scissors"></i>' &&
+      computerImg.innerHTML === '<i class="fas fa-hand-paper"></i>') ||
+    (humanImg.innerHTML === '<i class="fas fa-hand-paper"></i>' &&
+      computerImg.innerHTML === '<i class="fas fa-hand-rock"></i>')
   ) {
-    // return "You win! 🎉";
-    alert("Human wins");
-    let newScore = scoreEl1++;
-    scoreEl1.textContent = newScore;
+    // alert("Human wins");
+    let score1 = parseInt(scoreEl1.textContent); // Convert text to number
+    scoreEl1.textContent = ++score1; // Increment and update the text
+    humanBg.style.backgroundColor = "green";
+    computerBg.style.backgroundColor = "";
   } else {
-    // return "Computer wins! 🤖";
-    alert("Computer wins");
+    // alert("Computer wins");
+    let score2 = parseInt(scoreEl2.textContent); // Convert text to number
+    scoreEl2.textContent = ++score2; // Increment and update the text
+    computerBg.style.backgroundColor = "green";
+    humanBg.style.backgroundColor = "";
   }
+
+  let counter = parseInt(roundCounter.textContent);
+  roundCounter.textContent = ++counter;
 }
 
-// to check who wins
+// Function to reset the game
+function resetGame() {
+  humanImg.innerHTML = "";
+  computerImg.innerHTML = "";
+  humanBg.style.backgroundColor = "";
+  computerBg.style.backgroundColor = "";
+  scoreEl1.textContent = 0;
+  scoreEl2.textContent = 0;
+  roundCounter.textContent = 0;
+}
+
+// Keyboard keys events
+document.addEventListener("keydown", function (event) {
+  if (event.key.toLowerCase() === "r") {
+    humanSelection(rockEl);
+    computerSelection();
+    getWinner();
+  } else if (event.key.toLowerCase() === "p") {
+    humanSelection(paperEl);
+    computerSelection();
+    getWinner();
+  } else if (event.key.toLowerCase() === "s") {
+    humanSelection(scissorsEl);
+    computerSelection();
+    getWinner();
+  } else if (event.key.toLowerCase() === "n") {
+    resetGame();
+  }
+});
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     humanSelection(button);
@@ -89,10 +124,7 @@ buttons.forEach((button) => {
   });
 });
 
-// Resetting the score and round counter to 0 and also the images
+// Resetting the score counter, round counter, the images, and the background color to default
 newGameBtn.addEventListener("click", () => {
-  humanImg.innerHTML = "";
-  computerImg.innerHTML = "";
-  scoreEl1.textContent = 0;
-  scoreEl2.textContent = 0;
+  resetGame();
 });
