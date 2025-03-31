@@ -22,8 +22,12 @@
 }
 
 .computer-player {
-  background-color: yellow;
+  /* background-color: yellow; */
   border-left: 2px solid red;
+}
+
+.winner {
+  background-color: green;
 }
 
 .icons {
