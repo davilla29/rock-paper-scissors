@@ -15,10 +15,15 @@
   margin: 2rem auto;
 }
 
+/* .winner {
+  background-color: green;
+} */
+
 .player {
   width: 100%;
   padding: 3rem;
   text-align: center;
+  background-color: aliceblue;
 }
 
 .computer-player {
@@ -26,8 +31,11 @@
   border-left: 2px solid red;
 }
 
-.winner {
-  background-color: green;
+.image {
+  border: 2px solid red;
+  width: 30%;
+  margin: 1.3rem auto;
+  font-size: 3rem;
 }
 
 .icons {
@@ -41,6 +49,7 @@
   transform: translateX(-50%);
   gap: 3rem;
 }
+
 button {
   position: absolute;
   cursor: pointer;
