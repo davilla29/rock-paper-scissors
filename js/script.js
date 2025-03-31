@@ -75,7 +75,8 @@ function getWinner() {
     let newScore = scoreEl1++;
     scoreEl1.textContent = newScore;
   } else {
-    return "Computer wins! 🤖";
+    // return "Computer wins! 🤖";
+    alert("Computer wins");
   }
 }
 
