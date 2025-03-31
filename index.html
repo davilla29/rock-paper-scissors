@@ -12,16 +12,19 @@
   </head>
   <body>
     <main>
+      <p style="font-size: 2rem; margin-left: 2rem">
+        Round:<span id="round"></span>
+      </p>
       <div class="container">
-        <section class="player human-player winner">
-          <p>Human</p>
+        <section class="player human-player winner" id="human">
+          <p class="name">Human</p>
           <p class="image human-image"></p>
-          <p class="score human-score">0</p>
+          <p class="score human-score"></p>
         </section>
-        <section class="player computer-player">
-          <p>Computer</p>
+        <section class="player computer-player" id="computer">
+          <p class="name">Computer</p>
           <p class="image computer-image"></p>
-          <p class="score computer-score">0</p>
+          <p class="score computer-score"></p>
         </section>
 
         <button id="newBtn">New Game</button>
