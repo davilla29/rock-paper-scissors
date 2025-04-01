@@ -9,6 +9,14 @@ body {
   color: #212121; /* Black */
 }
 
+.round-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin: 1.3rem auto 0;
+}
+
 .container {
   position: relative;
   width: 60%;
@@ -16,7 +24,7 @@ body {
   border: 1px solid #424242; /* Charcoal Gray */
   background-color: #ffffff; /* White */
   display: flex;
-  margin: 3rem auto;
+  margin: 1rem auto;
 }
 
 .player {
@@ -25,8 +33,13 @@ body {
   text-align: center;
 }
 
+.name,
+.score {
+  font-size: 2rem;
+}
+
 .computer-player {
-  border-left: 1px solid #0d47a1; /* Deep Blue */
+  border-left: 1px solid #424242; /* Deep Blue */
 }
 
 .image {
@@ -55,26 +68,28 @@ body {
   gap: 3rem;
 }
 
-button {
+.newBtn {
   position: absolute;
   cursor: pointer;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #212121; /* Black */
   color: #ffffff; /* White */
-  border: 1px solid #424242; /* Charcoal Gray */
+  outline: none;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
 }
 
-button:hover {
-  background-color: #0d47a1; /* Deep Blue */
+.newBtn:hover {
+  background-color: #90caf9; /* Deep Blue */
   color: #ffffff; /* White */
+  border: none;
+  outline: none;
 }
 
-.button {
+.icon-button {
   background-color: #424242; /* Charcoal Gray */
   cursor: pointer;
   color: #ffffff; /* White */
@@ -82,8 +97,6 @@ button:hover {
   border-radius: 5px;
 }
 
-.button:hover {
+.icon-button:hover {
   background-color: #90caf9; /* Soft Blue */
 }
-
-
