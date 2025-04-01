@@ -1,0 +1,80 @@
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    width: 80%;
+    height: 25rem;
+  }
+
+  .name,
+  .score {
+    font-size: 1.5rem;
+  }
+
+  .image {
+    width: 40%;
+  }
+
+  .icons {
+    top: 10rem;
+    left: 0;
+    font-size: 1.5rem;
+    /* flex-direction: row; */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    height: auto;
+  }
+
+  .name,
+  .score {
+    font-size: 1.3rem;
+  }
+
+  .image {
+    width: 50%;
+  }
+
+  .icons {
+    top: 40%;
+    font-size: 1.3rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    margin: 3rem auto;
+  }
+
+  .player {
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .name,
+  .score {
+    font-size: 1.2rem;
+  }
+
+  .image {
+    width: 60%;
+  }
+  .icons {
+    top: 25rem;
+    left: 50%;
+    font-size: 3rem;
+    flex-direction: row;
+  }
+
+  .newBtn {
+    top: 15rem;
+    left: 50%;
+    font-size: 1.9rem;
+    padding: 8px 15px;
+  }
+}

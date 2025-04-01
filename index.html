@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock,Paper,Scissors</title>
-    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/querie.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -12,9 +13,7 @@
   </head>
   <body>
     <main>
-      <p style="font-size: 2rem; margin-left: 2rem">
-        Round:<span id="round"></span>
-      </p>
+      <p class="round-counter">Round:<span id="round"></span></p>
       <div class="container">
         <section class="player human-player winner" id="human">
           <p class="name">Human</p>
@@ -27,12 +26,12 @@
           <p class="score computer-score"></p>
         </section>
 
-        <button id="newBtn">New Game</button>
+        <button class="newBtn" id="newBtn">New Game</button>
 
         <div class="icons">
-          <i class="fas fa-hand-rock button" id="rock"></i>
-          <i class="fas fa-hand-paper button" id="paper"></i>
-          <i class="fas fa-hand-scissors button" id="scissors"></i>
+          <i class="fas fa-hand-rock icon-button" id="rock"></i>
+          <i class="fas fa-hand-paper icon-button" id="paper"></i>
+          <i class="fas fa-hand-scissors icon-button" id="scissors"></i>
         </div>
       </div>
     </main>
