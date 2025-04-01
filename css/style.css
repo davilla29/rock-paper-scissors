@@ -80,6 +80,8 @@ body {
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
+  display: inline-flex;
+  gap: 0.3rem;
 }
 
 .newBtn:hover {

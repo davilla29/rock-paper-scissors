@@ -15,17 +15,32 @@
   }
 
   .icons {
-    top: 10rem;
-    left: 0;
-    font-size: 1.5rem;
-    /* flex-direction: row; */
+    top: 35rem;
+    left: 50%;
+    font-size: 3rem;
+    flex-direction: row;
+  }
+
+  .newBtn {
+    top: 27rem;
+    left: 50%;
+    font-size: 1.9rem;
+    padding: 1.3rem;
   }
 }
 
 @media (max-width: 768px) {
   .container {
+    width: 95%;
+    margin: 3rem auto;
     width: 90%;
     height: auto;
+  }
+
+  .player {
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
   }
 
   .name,
@@ -38,9 +53,17 @@
   }
 
   .icons {
-    top: 40%;
+    top: 26rem;
+    left: 50%;
+    font-size: 3rem;
+    flex-direction: row;
+  }
+
+  .newBtn {
+    top: 17rem;
+    left: 50%;
     font-size: 1.3rem;
-    gap: 2rem;
+    padding: 1rem;
   }
 }
 
@@ -72,9 +95,9 @@
   }
 
   .newBtn {
-    top: 15rem;
+    top: 18rem;
     left: 50%;
-    font-size: 1.9rem;
-    padding: 8px 15px;
+    font-size: 1.3rem;
+    padding: 1rem;
   }
 }
