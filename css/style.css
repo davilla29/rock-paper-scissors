@@ -4,38 +4,35 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f5f5f5; /* Light Gray */
+  color: #212121; /* Black */
+}
+
 .container {
   position: relative;
   width: 60%;
   height: 30rem;
-  border: 1px solid gray;
-  background-color: #e7e9eb;
+  border: 1px solid #424242; /* Charcoal Gray */
+  background-color: #ffffff; /* White */
   display: flex;
-  /* justify-content: space-between; */
   margin: 3rem auto;
 }
-
-/* .winner {
-  background-color: green;
-} */
 
 .player {
   width: 100%;
   padding-top: 9rem;
   text-align: center;
-  /* background-color: aliceblue; */
 }
 
 .computer-player {
-  /* background-color: yellow; */
-  border-left: 1px solid red;
+  border-left: 1px solid #0d47a1; /* Deep Blue */
 }
 
 .image {
-  /* border: 2px solid red; */
   width: 30%;
   margin: 1.3rem auto;
-  border: 2px solid red;
+  border: 2px solid #0d47a1; /* Deep Blue */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +46,7 @@
 .icons {
   position: absolute;
   font-size: 2rem;
-  color: blue;
+  color: #0d47a1; /* Deep Blue */
   display: flex;
   flex-direction: column;
   top: 30%;
@@ -64,9 +61,29 @@ button {
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
+  background-color: #212121; /* Black */
+  color: #ffffff; /* White */
+  border: 1px solid #424242; /* Charcoal Gray */
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0d47a1; /* Deep Blue */
+  color: #ffffff; /* White */
 }
 
 .button {
-  background-color: red;
+  background-color: #424242; /* Charcoal Gray */
   cursor: pointer;
+  color: #ffffff; /* White */
+  padding: 10px;
+  border-radius: 5px;
 }
+
+.button:hover {
+  background-color: #90caf9; /* Soft Blue */
+}
+
+

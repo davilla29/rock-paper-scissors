@@ -59,8 +59,8 @@ function computerSelection() {
 function getWinner() {
   if (humanImg.innerHTML === computerImg.innerHTML) {
     // alert("Draw");
-    computerBg.style.backgroundColor = "yellow";
-    humanBg.style.backgroundColor = "yellow";
+    computerBg.style.backgroundColor = "#ffc107";
+    humanBg.style.backgroundColor = "#ffc107";
   } else if (
     (humanImg.innerHTML === '<i class="fas fa-hand-rock"></i>' &&
       computerImg.innerHTML === '<i class="fas fa-hand-scissors"></i>') ||
@@ -70,15 +70,16 @@ function getWinner() {
       computerImg.innerHTML === '<i class="fas fa-hand-rock"></i>')
   ) {
     // alert("Human wins");
-    let score1 = parseInt(scoreEl1.textContent); // Convert text to number
+    // Declaring a variable and storing the converted text to number
+    let score1 = parseInt(scoreEl1.textContent);
     scoreEl1.textContent = ++score1; // Increment and update the text
-    humanBg.style.backgroundColor = "green";
+    humanBg.style.backgroundColor = "#4caf50";
     computerBg.style.backgroundColor = "";
   } else {
     // alert("Computer wins");
     let score2 = parseInt(scoreEl2.textContent); // Convert text to number
     scoreEl2.textContent = ++score2; // Increment and update the text
-    computerBg.style.backgroundColor = "green";
+    computerBg.style.backgroundColor = "#4caf50";
     humanBg.style.backgroundColor = "";
   }
 
