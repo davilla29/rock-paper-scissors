@@ -10,6 +10,11 @@ let scoreEl2 = document.querySelector(".computer-score");
 let humanBg = document.getElementById("human");
 let computerBg = document.getElementById("computer");
 let roundCounter = document.getElementById("round");
+let darkBtn = document.getElementById("dark");
+
+darkBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
 
 // Setting default values
 scoreEl1.textContent = 0;
