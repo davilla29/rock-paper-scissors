@@ -74,19 +74,35 @@ body {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #212121; /* Black */
-  color: #ffffff; /* White */
+  background-color: #212121;
+  color: #ffffff;
   outline: none;
   padding: 1.1rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   border-radius: 5px;
   display: inline-flex;
   gap: 0.3rem;
+  border: none;
+  outline: none;
+}
+
+.shortcutBtn {
+  position: absolute;
+  cursor: pointer;
+  top: 1rem;
+  left: 1rem;
+  background-color: #212121;
+  color: #ffffff;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
 .newBtn:hover {
-  background-color: #90caf9; /* Deep Blue */
   color: #ffffff; /* White */
+  background-color: #90caf9;
   border: none;
   outline: none;
 }
@@ -111,43 +127,111 @@ body {
   font-size: 3rem;
 }
 
+.footer {
+  padding: 1.3rem 3rem;
+  /* margin: 0 3rem 0 5rem; */
+  text-align: center;
+  font-size: 1.5rem;
+  color: #212121;
+}
+
+/* Rules Modal */
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 4rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+ul li {
+  font-size: 1.5rem;
+  background: #fff;
+  list-style: none;
+  font-weight: 400;
+  color: black;
+  line-height: 1.6;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
 /* Dark Mode */
 body.dark-mode {
-  background-color: #121212; /* Dark Background */
-  color: #e0e0e0; /* Light Text */
+  background-color: #121212;
+  color: #fff;
 }
 
 .dark-mode .container {
-  background-color: #1e1e1e; /* Darker Container */
-  border-color: #616161; /* Gray Border */
+  background-color: #1e1e1e;
+  border-color: #616161;
 }
 
 .dark-mode .computer-player {
-  border-left: 1px solid #616161; /* Gray Border */
+  border-left: 1px solid #616161;
 }
 
 .dark-mode .image {
-  border-color: #90caf9; /* Soft Blue */
+  border-color: #90caf9;
 }
 
 .dark-mode .icons {
-  color: #90caf9; /* Soft Blue */
+  color: #90caf9;
 }
 
 .dark-mode .newBtn {
-  background-color: #90caf9; /* Soft Blue */
-  color: #121212; /* Dark Text */
+  background-color: #90caf9;
+  color: #121212;
 }
 
 .dark-mode .newBtn:hover {
-  background-color: #64b5f6; /* Lighter Blue */
-  color: #121212; /* Dark Text */
+  background-color: #64b5f6;
+  color: #121212;
 }
 
 .dark-mode .icon-button {
-  background-color: #616161; /* Gray */
+  background-color: #616161;
 }
 
 .dark-mode .icon-button:hover {
-  background-color: #90caf9; /* Soft Blue */
+  background-color: #90caf9;
+}
+
+.dark-mode .footer {
+  color: #fff;
 }

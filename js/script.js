@@ -1,16 +1,21 @@
-let rockEl = document.getElementById("rock");
-let paperEl = document.getElementById("paper");
-let scissorsEl = document.getElementById("scissors");
-let humanImg = document.querySelector(".human-image");
-let computerImg = document.querySelector(".computer-image");
-let buttons = document.querySelectorAll(".icon-button");
-let newGameBtn = document.getElementById("newBtn");
-let scoreEl1 = document.querySelector(".human-score");
-let scoreEl2 = document.querySelector(".computer-score");
-let humanBg = document.getElementById("human");
-let computerBg = document.getElementById("computer");
-let roundCounter = document.getElementById("round");
-let darkBtn = document.getElementById("dark");
+const rockEl = document.getElementById("rock");
+const paperEl = document.getElementById("paper");
+const scissorsEl = document.getElementById("scissors");
+const humanImg = document.querySelector(".human-image");
+const computerImg = document.querySelector(".computer-image");
+const buttons = document.querySelectorAll(".icon-button");
+const newGameBtn = document.getElementById("newBtn");
+const scoreEl1 = document.querySelector(".human-score");
+const scoreEl2 = document.querySelector(".computer-score");
+const humanBg = document.getElementById("human");
+const computerBg = document.getElementById("computer");
+const roundCounter = document.getElementById("round");
+const darkBtn = document.getElementById("dark");
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnShowModal = document.querySelector(".shortcutBtn");
+const btnCloseModal = document.querySelector(".close-modal");
 
 darkBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
@@ -133,4 +138,20 @@ buttons.forEach((button) => {
 // Resetting the score counter, round counter, the images, and the background color to default
 newGameBtn.addEventListener("click", () => {
   resetGame();
+});
+
+// Set current year
+const yearEl = document.querySelector(".year");
+const currentYear = new Date().getFullYear();
+yearEl.textContent = currentYear;
+
+// Keyboard shortcuts modal
+btnShowModal.addEventListener("click", function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+btnCloseModal.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
 });
