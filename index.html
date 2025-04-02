@@ -13,6 +13,8 @@
   </head>
   <body>
     <main>
+      <button class="shortcutBtn">Keyboard Shortcuts</button>
+
       <p class="round-counter">Round:<span id="round"></span></p>
       <!-- <button id="dark">Dark mode</button> -->
       <i class="fa-solid fa-circle-half-stroke" id="dark"></i>
@@ -39,7 +41,23 @@
           <i class="fas fa-hand-scissors icon-button" id="scissors"></i>
         </div>
       </div>
+      <div class="overlay hidden"></div>
     </main>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h2>Keyboard Shortcuts</h2>
+      <ul>
+        <li><span>1.</span>R or r for Rock.</li>
+        <li><span>2.</span>P or p for Paper.</li>
+        <li><span>3.</span>S or s for Scissors.</li>
+        <li><span>4.</span>N or n for New Game.</li>
+      </ul>
+    </div>
+
+    <footer class="footer">
+      <div id="footer">&copy;<span class="year"></span> Bolarinwa David</div>
+    </footer>
 
     <script src="./js/script.js"></script>
   </body>

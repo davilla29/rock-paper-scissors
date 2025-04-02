@@ -26,6 +26,18 @@
     left: 50%;
     font-size: 1.9rem;
     padding: 1.3rem;
+
+  }
+
+  .shortcutBtn {
+    display: none;
+  }
+
+  .footer {
+    font-size: 2rem;
+    margin-top: 20rem;
+    padding: 0.8rem auto;
+
   }
 }
 
@@ -64,6 +76,13 @@
     left: 50%;
     font-size: 1.3rem;
     padding: 1rem;
+
+  }
+  .footer {
+    font-size: 1.6rem;
+    margin-top: 20rem;
+    padding: 0.8rem auto;
+
   }
 }
 
@@ -99,5 +118,22 @@
     left: 50%;
     font-size: 1.3rem;
     padding: 1rem;
+
+  }
+
+  .footer {
+    font-size: 1.3rem;
+    margin-top: 20rem;
+    padding: 0.8rem auto;
+  }
+}
+
+@media (max-width: 321px) {
+  .newBtn {
+    top: 18rem;
+    left: 50%;
+    font-size: 1rem;
+    padding: 1rem;
+
   }
 }
