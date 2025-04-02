@@ -78,6 +78,7 @@ body {
   color: #ffffff;
   outline: none;
   padding: 1.1rem;
+
   font-size: 1.3rem;
   border-radius: 5px;
   display: inline-flex;
@@ -98,6 +99,12 @@ body {
   border-radius: 5px;
   border: none;
   outline: none;
+
+  font-size: 1rem;
+  border-radius: 5px;
+  display: inline-flex;
+  gap: 0.3rem;
+
 }
 
 .newBtn:hover {
@@ -126,6 +133,7 @@ body {
   right: 3rem;
   font-size: 3rem;
 }
+
 
 .footer {
   padding: 1.3rem 3rem;
@@ -234,4 +242,45 @@ body.dark-mode {
 
 .dark-mode .footer {
   color: #fff;
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212; /* Dark Background */
+  color: #e0e0e0; /* Light Text */
+}
+
+.dark-mode .container {
+  background-color: #1e1e1e; /* Darker Container */
+  border-color: #616161; /* Gray Border */
+}
+
+.dark-mode .computer-player {
+  border-left: 1px solid #616161; /* Gray Border */
+}
+
+.dark-mode .image {
+  border-color: #90caf9; /* Soft Blue */
+}
+
+.dark-mode .icons {
+  color: #90caf9; /* Soft Blue */
+}
+
+.dark-mode .newBtn {
+  background-color: #90caf9; /* Soft Blue */
+  color: #121212; /* Dark Text */
+}
+
+.dark-mode .newBtn:hover {
+  background-color: #64b5f6; /* Lighter Blue */
+  color: #121212; /* Dark Text */
+}
+
+.dark-mode .icon-button {
+  background-color: #616161; /* Gray */
+}
+
+.dark-mode .icon-button:hover {
+  background-color: #90caf9; /* Soft Blue */
+
 }
