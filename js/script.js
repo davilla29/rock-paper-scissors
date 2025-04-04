@@ -18,6 +18,17 @@ const btnCloseModal = document.querySelector(".close-modal");
 
 darkBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
+  // Save theme preference
+  const isDark = document.body.classList.contains("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+// Load saved theme on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
 });
 
 // Setting default values
