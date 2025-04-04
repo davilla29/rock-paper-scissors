@@ -108,8 +108,8 @@ function resetGame() {
   roundCounter.textContent = 0;
 }
 
-// Keyboard keys events
-document.addEventListener("keydown", function (event) {
+// Function to listen for keydown events on specific keys
+function keyEvents(event) {
   if (event.key.toLowerCase() === "r") {
     humanSelection(rockEl);
     computerSelection();
@@ -125,6 +125,11 @@ document.addEventListener("keydown", function (event) {
   } else if (event.key.toLowerCase() === "n") {
     resetGame();
   }
+}
+
+// Keyboard keys events
+document.addEventListener("keydown", function (event) {
+  keyEvents(event);
 });
 
 buttons.forEach((button) => {
