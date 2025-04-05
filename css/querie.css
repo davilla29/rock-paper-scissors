@@ -26,7 +26,6 @@
     left: 50%;
     font-size: 1.9rem;
     padding: 1.3rem;
-
   }
 
   .shortcutBtn {
@@ -37,7 +36,6 @@
     font-size: 2rem;
     margin-top: 20rem;
     padding: 0.8rem auto;
-
   }
 }
 
@@ -76,13 +74,11 @@
     left: 50%;
     font-size: 1.3rem;
     padding: 1rem;
-
   }
   .footer {
     font-size: 1.6rem;
     margin-top: 20rem;
     padding: 0.8rem auto;
-
   }
 }
 
@@ -107,18 +103,17 @@
     width: 60%;
   }
   .icons {
-    top: 25rem;
+    top: 18rem;
     left: 50%;
     font-size: 3rem;
     flex-direction: row;
   }
 
   .newBtn {
-    top: 18rem;
+    top: 25rem;
     left: 50%;
     font-size: 1.3rem;
     padding: 1rem;
-
   }
 
   .footer {
@@ -130,10 +125,9 @@
 
 @media (max-width: 321px) {
   .newBtn {
-    top: 18rem;
+    top: 25rem;
     left: 50%;
     font-size: 1rem;
     padding: 1rem;
-
   }
 }

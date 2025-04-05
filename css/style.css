@@ -79,7 +79,6 @@ body {
   color: #ffffff;
   outline: none;
   padding: 1.1rem;
-
   font-size: 1.3rem;
   border-radius: 5px;
   display: inline-flex;
@@ -88,11 +87,9 @@ body {
   outline: none;
 }
 
-.shortcutBtn {
+.modalBtn {
   position: absolute;
   cursor: pointer;
-  top: 1rem;
-  left: 1rem;
   background-color: #212121;
   color: #ffffff;
   padding: 1rem;
@@ -102,6 +99,16 @@ body {
   outline: none;
   font-size: 1rem;
   border-radius: 5px;
+}
+
+.shortcutBtn {
+  top: 1rem;
+  left: 1rem;
+}
+
+.editBtn {
+  top: 5rem;
+  left: 1rem;
 }
 
 .newBtn:hover {
@@ -140,7 +147,8 @@ body {
 }
 
 /* Keyboard shortcuts modal */
-.close-modal {
+.close-modal,
+.close-modal2 {
   position: absolute;
   top: 1.2rem;
   right: 2rem;
@@ -171,7 +179,8 @@ ul li {
   display: none;
 }
 
-.modal {
+.modal,
+.modal2 {
   position: absolute;
   top: 50%;
   left: 50%;

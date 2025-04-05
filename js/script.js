@@ -12,12 +12,19 @@ const computerBg = document.getElementById("computer");
 const roundCounter = document.getElementById("round");
 const darkBtn = document.getElementById("dark");
 const modal = document.querySelector(".modal");
+const modal2 = document.querySelector(".modal2");
 const overlay = document.querySelector(".overlay");
 const btnShowModal = document.querySelector(".shortcutBtn");
-const btnCloseModal = document.querySelector(".close-modal");
+const btnCloseModal = document.querySelector(".modal1");
+const btnShowModal2 = document.querySelector(".editBtn");
+const btnCloseModal2 = document.querySelector(".close-modal2");
+const editNameBtn = document.getElementById("editNameBtn");
+const humanName = document.querySelector(".human-name");
+const editField = document.querySelector(".editField");
 
 darkBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
+
   // Save theme preference
   const isDark = document.body.classList.contains("dark-mode");
   localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -171,4 +178,45 @@ btnShowModal.addEventListener("click", function () {
 btnCloseModal.addEventListener("click", function () {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
+});
+
+// To open edit name modal
+btnShowModal2.addEventListener("click", function () {
+  modal2.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+// To close the edit name modal
+btnCloseModal2.addEventListener("click", function () {
+  modal2.classList.add("hidden");
+  overlay.classList.add("hidden");
+});
+
+// Select elements
+
+// const editField = document.getElementsByClassName("editField")[0];
+
+const errorMessage = document.getElementById("errorMessage");
+
+// Add event listener to the button
+editNameBtn.addEventListener("click", () => {
+  console.log("Button clicked");
+
+  // Get the value from the input field
+  const nameValue = editField.value.trim();
+
+  // Clear any previous error message
+  errorMessage.textContent = "";
+
+  // Check if the field is empty
+  if (nameValue === "") {
+    errorMessage.textContent = "Please enter your name."; // Display error message
+    return; // Exit the function to prevent further execution
+  }
+
+  // If the field is not empty, update the displayed name
+  humanName.textContent = nameValue;
+
+  // Optionally clear the input field after updating the name
+  editField.value = "";
 });
