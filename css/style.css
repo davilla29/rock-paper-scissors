@@ -146,34 +146,6 @@ body {
   color: #212121;
 }
 
-/* Keyboard shortcuts modal */
-.close-modal,
-.close-modal2 {
-  position: absolute;
-  top: 1.2rem;
-  right: 2rem;
-  font-size: 4rem;
-  color: #333;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: black;
-}
-
-ul li {
-  font-size: 1.5rem;
-  background: #fff;
-  list-style: none;
-  font-weight: 400;
-  color: black;
-  line-height: 1.6;
-}
-
 /* CLASSES TO MAKE MODAL WORK */
 .hidden {
   display: none;
@@ -202,7 +174,7 @@ ul li {
   backdrop-filter: blur(3px);
   z-index: 5;
 }
-
+/* 
 .name-container {
   display: flex;
   align-items: center;
@@ -215,12 +187,75 @@ ul li {
   width: 18px;
   height: 18px;
 }
-.name-input {
+ .name-input {
   font-size: 18px;
   border: 1px solid #ccc;
   padding: 4px;
   width: 100px;
-  display: none;
+  display: block;
+}  */
+
+/* Keyboard shortcuts modal */
+.close-modal,
+.close-modal2 {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 4rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+  color: black;
+}
+
+ul li {
+  font-size: 1.5rem;
+  background: #fff;
+  list-style: none;
+  font-weight: 400;
+  color: black;
+  line-height: 1.6;
+}
+
+.inputHolder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid #0d47a1; */
+  gap: 2rem;
+}
+
+.editField {
+  padding: 1rem;
+  /* margin-top: 1rem; */
+  font-size: 1rem;
+  border: 1px solid #0d47a1;
+  outline: none;
+  width: 70%;
+  border-radius: 5px;
+}
+
+#editNameBtn {
+  width: 30%;
+  cursor: pointer;
+  border: 1px solid #212121;
+  color: #000;
+  padding: 1rem;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 5px;
+}
+
+.errorMessage {
+  font-size: 1.3rem;
+  color: red;
 }
 
 /* Dark Mode */

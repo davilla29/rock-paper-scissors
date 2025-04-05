@@ -21,20 +21,27 @@ const btnCloseModal2 = document.querySelector(".close-modal2");
 const editNameBtn = document.getElementById("editNameBtn");
 const humanName = document.querySelector(".human-name");
 const editField = document.querySelector(".editField");
+const errorMessage = document.getElementById("errorMessage");
+const yearEl = document.querySelector(".year");
 
-darkBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-
-  // Save theme preference
-  const isDark = document.body.classList.contains("dark-mode");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-});
-
-// Load saved theme on page load
+// Load saved items in local storage
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
+  }
+
+  const savedGameState = JSON.parse(localStorage.getItem("gameState"));
+  if (savedGameState) {
+    // Restoring name, score, number of rounds, icons and background colors
+    humanName.textContent = savedGameState.name || "Player";
+    scoreEl1.textContent = savedGameState.humanScore || 0;
+    scoreEl2.textContent = savedGameState.computerScore || 0;
+    roundCounter.textContent = savedGameState.rounds || 0;
+    humanImg.innerHTML = savedGameState.humanIcon || "";
+    computerImg.innerHTML = savedGameState.computerIcon || "";
+    humanBg.style.backgroundColor = savedGameState.humanBg || "";
+    computerBg.style.backgroundColor = savedGameState.computerBg || "";
   }
 });
 
@@ -42,6 +49,21 @@ window.addEventListener("DOMContentLoaded", () => {
 scoreEl1.textContent = 0;
 scoreEl2.textContent = 0;
 roundCounter.textContent = 0;
+
+// Function to store the name, scores, background color, icons selected and number of rounds in local storage
+function saveGameState() {
+  const gameData = {
+    name: humanName.textContent,
+    humanScore: scoreEl1.textContent,
+    computerScore: scoreEl2.textContent,
+    rounds: roundCounter.textContent,
+    humanIcon: humanImg.innerHTML,
+    computerIcon: computerImg.innerHTML,
+    humanBg: humanBg.style.backgroundColor,
+    computerBg: computerBg.style.backgroundColor,
+  };
+  localStorage.setItem("gameState", JSON.stringify(gameData));
+}
 
 // Function for human selection
 function humanSelection(button) {
@@ -113,6 +135,8 @@ function getWinner() {
 
   let counter = parseInt(roundCounter.textContent);
   roundCounter.textContent = ++counter;
+
+  saveGameState(); // Save state after round
 }
 
 // Function to reset the game
@@ -124,10 +148,15 @@ function resetGame() {
   scoreEl1.textContent = 0;
   scoreEl2.textContent = 0;
   roundCounter.textContent = 0;
+
+  saveGameState(); // Save reset state
 }
 
 // Function to listen for keydown events on specific keys
 function keyEvents(event) {
+  const isModalOpen =
+    !modal.classList.contains("hidden") || !modal2.classList.contains("hidden");
+  if (isModalOpen) return;
   if (event.key.toLowerCase() === "r") {
     humanSelection(rockEl);
     computerSelection();
@@ -163,8 +192,16 @@ newGameBtn.addEventListener("click", () => {
   resetGame();
 });
 
+// Event listener to change background color
+darkBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  // Save theme preference
+  const isDark = document.body.classList.contains("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
 // Set current year
-const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
 
@@ -192,12 +229,6 @@ btnCloseModal2.addEventListener("click", function () {
   overlay.classList.add("hidden");
 });
 
-// Select elements
-
-// const editField = document.getElementsByClassName("editField")[0];
-
-const errorMessage = document.getElementById("errorMessage");
-
 // Add event listener to the button
 editNameBtn.addEventListener("click", () => {
   console.log("Button clicked");
@@ -210,8 +241,8 @@ editNameBtn.addEventListener("click", () => {
 
   // Check if the field is empty
   if (nameValue === "") {
-    errorMessage.textContent = "Please enter your name."; // Display error message
-    return; // Exit the function to prevent further execution
+    errorMessage.textContent = "Please enter your name.";
+    return;
   }
 
   // If the field is not empty, update the displayed name
@@ -219,4 +250,11 @@ editNameBtn.addEventListener("click", () => {
 
   // Optionally clear the input field after updating the name
   editField.value = "";
+
+  resetGame();
+
+  saveGameState(); // save the name and reset scores
+
+  modal2.classList.add("hidden");
+  overlay.classList.add("hidden");
 });
