@@ -87,7 +87,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 778px) {
   .container {
     width: 95%;
     margin: 3rem auto;
@@ -111,17 +111,25 @@
   }
 
   .icons {
-    top: 26rem;
+    top: 18rem;
     left: 50%;
     font-size: 3rem;
     flex-direction: row;
   }
 
   .newBtn {
-    top: 17rem;
+    top: 25rem;
     left: 50%;
     font-size: 1.3rem;
     padding: 1rem;
+  }
+
+  .modalBtn {
+    top: 36rem;
+    left: 30%;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
   }
 
   .footer {
