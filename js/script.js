@@ -154,26 +154,47 @@ function resetGame() {
   saveGameState(); // To update local storage
 }
 
+// Function to hide the error message after 4 seconds
+function msgTimeout() {
+  setTimeout(() => {
+    errorMessage.textContent = "";
+  }, 4000);
+}
+
 // Function to edit name
 function editName() {
   console.log("Button clicked");
 
-  // Get the value from the input field
+  // To get the value from the input field
   const nameValue = editField.value.trim();
 
-  // Clear any previous error message
+  // To clear any previous error message
   errorMessage.textContent = "";
 
-  // Check if the field is empty
+  // To check if the field is empty
   if (nameValue === "") {
     errorMessage.textContent = "Please enter your name.";
+
+    // Hide the error message after 4 seconds
+    msgTimeout();
+
     return;
   }
 
-  // If the field is not empty, update the displayed name
+  // To check if the name contains only letters and spaces
+  const namePattern = /^[a-zA-Z ]+$/;
+  if (!namePattern.test(nameValue)) {
+    errorMessage.textContent = "Name can only contain letters and spaces.";
+
+    // Hide the error message after 4 seconds
+    msgTimeout();
+    return;
+  }
+
+  // If the field is valid, update the displayed name
   humanName.textContent = nameValue;
 
-  // Optionally clear the input field after updating the name
+  // To clear the input field after updating the name
   editField.value = "";
 
   resetGame();
