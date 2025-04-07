@@ -24,13 +24,14 @@ const editField = document.querySelector(".editField");
 const errorMessage = document.getElementById("errorMessage");
 const yearEl = document.querySelector(".year");
 
-// Load saved items in local storage
+// To load and display saved items in local storage
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
   }
 
+  // To retrieve the previously saved game data from localStorage
   const savedGameState = JSON.parse(localStorage.getItem("gameState"));
   if (savedGameState) {
     // Restoring name, score, number of rounds, icons and background colors
@@ -62,6 +63,7 @@ function saveGameState() {
     humanBg: humanBg.style.backgroundColor,
     computerBg: computerBg.style.backgroundColor,
   };
+  // To save the "gameData" object created as a string to local storage
   localStorage.setItem("gameState", JSON.stringify(gameData));
 }
 
@@ -149,11 +151,44 @@ function resetGame() {
   scoreEl2.textContent = 0;
   roundCounter.textContent = 0;
 
-  saveGameState(); // Save reset state
+  saveGameState(); // To update local storage
+}
+
+// Function to edit name
+function editName() {
+  console.log("Button clicked");
+
+  // Get the value from the input field
+  const nameValue = editField.value.trim();
+
+  // Clear any previous error message
+  errorMessage.textContent = "";
+
+  // Check if the field is empty
+  if (nameValue === "") {
+    errorMessage.textContent = "Please enter your name.";
+    return;
+  }
+
+  // If the field is not empty, update the displayed name
+  humanName.textContent = nameValue;
+
+  // Optionally clear the input field after updating the name
+  editField.value = "";
+
+  resetGame();
+
+  saveGameState(); // To update local storage and reset scores
+
+  modal2.classList.add("hidden");
+  overlay.classList.add("hidden");
 }
 
 // Function to listen for keydown events on specific keys
 function keyEvents(event) {
+  if (event.key === "Enter") {
+    editName();
+  }
   const isModalOpen =
     !modal.classList.contains("hidden") || !modal2.classList.contains("hidden");
   if (isModalOpen) return;
@@ -174,11 +209,12 @@ function keyEvents(event) {
   }
 }
 
-// Keyboard keys events
+// Calling all the keyboard keys events
 document.addEventListener("keydown", function (event) {
   keyEvents(event);
 });
 
+// To loop through all element with button class and listen for a click event, then call the functions
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     humanSelection(button);
@@ -231,30 +267,5 @@ btnCloseModal2.addEventListener("click", function () {
 
 // Add event listener to the button
 editNameBtn.addEventListener("click", () => {
-  console.log("Button clicked");
-
-  // Get the value from the input field
-  const nameValue = editField.value.trim();
-
-  // Clear any previous error message
-  errorMessage.textContent = "";
-
-  // Check if the field is empty
-  if (nameValue === "") {
-    errorMessage.textContent = "Please enter your name.";
-    return;
-  }
-
-  // If the field is not empty, update the displayed name
-  humanName.textContent = nameValue;
-
-  // Optionally clear the input field after updating the name
-  editField.value = "";
-
-  resetGame();
-
-  saveGameState(); // save the name and reset scores
-
-  modal2.classList.add("hidden");
-  overlay.classList.add("hidden");
+  editName();
 });
